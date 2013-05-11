@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>flat-ui</artifactId>
-    <version>bcaf2de95e</version>
+    <version>1.1-SNAPSHOT</version>
     <name>Flat UI</name>
     <description>WebJar for Flat UI</description>
     <url>http://webjars.org</url>
@@ -36,7 +36,7 @@
         <url>http://github.com/webjars/flat-ui</url>
         <connection>scm:git:https://github.com/webjars/flat-ui.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/flat-ui.git</developerConnection>
-        <tag>flat-ui-bcaf2de95e</tag>
+        <tag>HEAD</tag>
     </scm>
     
     <dependencies>
