@@ -10,47 +10,73 @@
     
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
-    <artifactId>WEBJAR_ID</artifactId>
-    <version>UPSTREAM_VERSION-SNAPSHOT</version>
-    <name>WEBJAR_NAME</name>
-    <description>WebJar for WEBJAR_NAME</description>
+    <artifactId>flat-ui</artifactId>
+    <version>bcaf2de95e-SNAPSHOT</version>
+    <name>Flat UI</name>
+    <description>WebJar for Flat UI</description>
     <url>http://webjars.org</url>
 
     <developers>
         <developer>
-            <id>YOUR_ID</id>
-            <name>YOUR_NAME</name>
-            <email>YOUR_EMAIL</email>
+            <id>jamesward</id>
+            <name>James Ward</name>
+            <email>james@jamesward.com</email>
         </developer>
     </developers>
 
     <licenses>
         <license>
-            <name>UPSTREAM_LICENSE_NAME</name>
-            <url>UPSTREAM_LICENSE_VERSION</url>
+            <name>Creative Commons Attribution 3.0 Unported</name>
+            <url>http://creativecommons.org/licenses/by/3.0/</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <scm>
-        <url>http://github.com/webjars/WEBJAR_ID</url>
-        <connection>scm:git:https://github.com/webjars/WEBJAR_ID.git</connection>
-        <developerConnection>scm:git:https://github.com/webjars/WEBJAR_ID.git</developerConnection>
+        <url>http://github.com/webjars/flat-ui</url>
+        <connection>scm:git:https://github.com/webjars/flat-ui.git</connection>
+        <developerConnection>scm:git:https://github.com/webjars/flat-ui.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     
     <dependencies>
         <dependency>
             <groupId>org.webjars</groupId>
-            <artifactId>ANOTHER_WEBJAR_ID</artifactId>
-            <version>ANOTHER_WEBJAR_VERSION</version>
+            <artifactId>bootstrap</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-tagsinput</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-placeholder</artifactId>
+            <version>2.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-dropkick</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-ui</artifactId>
+            <version>1.10.2-1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>html5shiv</artifactId>
+            <version>3.6.2</version>
         </dependency>
     </dependencies>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>UPSTREAM_VERSION</upstream.version>
-        <upstream.url>UPSTREAM_URL</upstream.url>
+        <upstream.version>bcaf2de95e</upstream.version>
+        <upstream.commit>bcaf2de95e2091602c4159f05124ac1027b11a1c</upstream.commit>
+        <upstream.url>https://github.com/designmodo/Flat-UI/archive</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
     </properties>
 
@@ -68,7 +94,7 @@
                         </goals>
                         <configuration>
                             <url>${upstream.url}</url>
-                            <fromFile>SOME_FILE-${upstream.version}.zip</fromFile>
+                            <fromFile>${upstream.commit}.zip</fromFile>
                             <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
                         </configuration>
                     </execution>
@@ -87,9 +113,18 @@
                                 <echo message="unzip archive" />
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
-                                <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/SOME_SUBDIR-${upstream.version}" />
+				<move file="${project.build.directory}/Flat-UI-${upstream.commit}/css/flat-ui.css" todir="${destDir}/css"/>
+                                <move todir="${destDir}/fonts">
+                                    <fileset dir="${project.build.directory}/Flat-UI-${upstream.commit}/fonts"/>
                                 </move>
+                                <move todir="${destDir}/images">
+                                    <fileset dir="${project.build.directory}/Flat-UI-${upstream.commit}/images"/>
+                                </move>
+                                <move file="${project.build.directory}/Flat-UI-${upstream.commit}/js/application.js" todir="${destDir}/js"/>
+                                <move file="${project.build.directory}/Flat-UI-${upstream.commit}/js/custom_checkbox_and_radio.js" todir="${destDir}/js"/>
+                                <move file="${project.build.directory}/Flat-UI-${upstream.commit}/js/custom_radio.js" todir="${destDir}/js"/>
+                                <move file="${project.build.directory}/Flat-UI-${upstream.commit}/js/icon-font-ie7.js" todir="${destDir}/js"/>
+                                <move file="${project.build.directory}/Flat-UI-${upstream.commit}/js/lte-ie7-24.js" todir="${destDir}/js"/>
                             </target>
                         </configuration>
                     </execution>

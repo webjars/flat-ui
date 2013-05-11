@@ -1,10 +1,15 @@
 /*global requirejs */
 
-// Ensure any request for this webjar brings in dependencies. For example if this webjar contains
-// bootstrap.js which depends on jQuery then you would have the following configuration.
-//
-//     requirejs.config({
-//        shim: {
-//            'bootstrap': [ 'webjars!jquery.js' ]
-//        }
-//    });
+requirejs.config({
+    shim: {
+        'application': [
+            'webjars!jquery.js',
+            'webjars!bootstrap-tooltip.js',
+            'webjars!html5shiv.js',
+            'webjars!jquery-ui.js',
+            'webjars!jquery.dropkick.js',
+            'webjars!jquery.placeholder.js',
+            'webjars!jquery.tagsinput.js'
+        ]
+    }
+});

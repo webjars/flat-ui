@@ -1,5 +1,5 @@
-WebJar for [Library]
+WebJar for Flat UI
 
 More info: http://webjars.org
 
-Upstream: [Library URL]
+Upstream: https://github.com/designmodo/Flat-UI
